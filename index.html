@@ -18,16 +18,28 @@
                 <a href="#features"><i class="fas fa-comments"></i> 聊天功能</a>
                 <a href="#security"><i class="fas fa-shield-alt"></i> 安全特性</a>
                 <a href="#chat"><i class="fas fa-language"></i> 多语言支持</a>
-                <a href="#user-experience"><i class="fas fa-star"></i> 用户体验</a>
+            
                 <a href="#community"><i class="fas fa-users"></i> 社区</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="打开菜单">
+            <button class="mobile-menu-btn" aria-label="打开菜单" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             <button class="download-btn">
                 <i class="fas fa-download"></i> 立即下载
             </button>
         </nav>
+        
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#features"><i class="fas fa-comments"></i> 聊天功能</a>
+            <a href="#security"><i class="fas fa-shield-alt"></i> 安全特性</a>
+            <a href="#chat"><i class="fas fa-language"></i> 多语言支持</a>
+        
+            <a href="#community"><i class="fas fa-users"></i> 社区</a>
+            <button class="download-btn">
+                <i class="fas fa-download"></i> 立即下载
+            </button>
+        </div>
     </header>
 
     <main>
@@ -45,7 +57,7 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">1000万+</span>
+                        <span class="stat-number">100万+</span>
                         <span class="stat-label">活跃用户</span>
                     </div>
                     <div class="stat-item">
@@ -273,178 +285,286 @@
         </section>
 
         <section id="chat" class="chat-section">
-            <h2>多语言聊天体验</h2>
-            <p class="subtitle">不同语言不再是沟通障碍，QQLink内置强大的AI翻译引擎</p>
-            
-            <div class="chat-features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>多国人士在一个群聊中使用各自母语沟通</span>
+            <div class="chat-section-container">
+                <div class="chat-intro">
+                    <h2>多语言聊天体验</h2>
+                    <p class="subtitle">不同语言不再是沟通障碍，QQLink内置强大的AI翻译引擎</p>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>实时翻译，零延迟展示</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>支持100+种语言和方言</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>基于区块链的加密聊天，信息安全有保障</span>
-                </div>
-            </div>
-            
-            <div class="language-flags">
-                <div class="lang-flag">CN</div>
-                <div class="lang-flag">US</div>
-                <div class="lang-flag">JP</div>
-                <div class="lang-flag">KR</div>
-                <div class="lang-flag">RU</div>
-                <div class="lang-flag">ES</div>
-                <div class="lang-flag">FR</div>
-                <div class="lang-flag">DE</div>
-                <div class="lang-flag more">+92</div>
-            </div>
-            
-            <div class="chat-content">
-                <div class="chat-preview">
-                    <div class="chat-header">
-                        <div class="group-info">
-                            <div class="group-name">Global Business Group</div>
-                            <div class="group-meta">36名成员 • 5在线</div>
-                        </div>
-                        <div class="menu-button">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="messages-container">
-                         
-                        <div class="translations-switch">
-                            <span class="switch-label">显示翻译</span>
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        
-                        <div class="chat-message left">
-                            <div class="message-author">
-                                <div class="user-avatar" data-initials="J">
-                                    <img src="assets/avatar1.png" alt="John Smith">
-                                    <span class="status-indicator online"></span>
-                                    <div class="user-info-tooltip">查看用户资料</div>
-                                </div>
-                                <div class="author-name">
-                                    <span>John Smith</span>
-                                    <div class="country-tag">EN</div>
-                                </div>
+                
+                <div class="chat-cards">
+                    <div class="chat-card">
+                        <div class="chat-card-header">
+                            <div class="chat-card-icon">
+                                <i class="fas fa-globe"></i>
                             </div>
-                            <div class="message-bubble">
-                                <div class="message-text">When can we expect the shipment to arrive?</div>
-                                <div class="translation-container">
-                                    <div class="translation-header">
-                                        <div class="translation-label">
-                                            <i class="fas fa-language"></i>
-                                            <span>翻译为中文</span>
-                                        </div>
-                                        <div class="translation-toggle">
-                                            <i class="fas fa-exchange-alt"></i>
-                                            <span>切换语言</span>
-                                        </div>
-                                    </div>
-                                    <div class="translation-text">预计什么时候能收到货物？</div>
-                                </div>
-                                <div class="message-footer">
-                                    <div class="message-time">10:25</div>
-                                </div>
-                            </div>
+                            <h3 class="chat-card-title">多语言实时聊天</h3>
                         </div>
-                        
-                        <div class="chat-message right">
-                            <div class="message-author">
-                                <div class="author-name">
-                                    <span>张明</span>
-                                    <div class="country-tag">CN</div>
-                                </div>
-                                <div class="user-avatar" data-initials="张">
-                                    <img src="assets/avatar2.png" alt="张明">
-                                    <span class="status-indicator online"></span>
-                                    <div class="user-info-tooltip">查看用户资料</div>
-                                </div>
+                        <div class="chat-card-content">
+                            <div class="feature-highlight">
+                                <span class="highlight-number">1</span>
+                                <span>多国人士在一个群聊中使用各自母语沟通</span>
                             </div>
-                            <div class="message-bubble">
-                                <div class="message-text">货物已经发出，预计3-5天内送达。</div>
-                                <div class="translation-container">
-                                    <div class="translation-header">
-                                        <div class="translation-label">
-                                            <i class="fas fa-language"></i>
-                                            <span>翻译为英文</span>
-                                        </div>
-                                        <div class="translation-toggle">
-                                            <i class="fas fa-exchange-alt"></i>
-                                            <span>切换语言</span>
-                                        </div>
-                                    </div>
-                                    <div class="translation-text">The goods have been shipped and should arrive in 3-5 days.</div>
-                                </div>
-                                <div class="message-footer">
-                                    <div class="message-time">10:30</div>
-                                    <div class="message-status">
-                                        <i class="fas fa-check-double"></i>
-                                        <div class="status-tooltip">已送达并已读</div>
-                                    </div>
-                                </div>
+                            <div class="feature-highlight">
+                                <span class="highlight-number">2</span>
+                                <span>支持100+种语言和方言，无缝切换</span>
                             </div>
-                        </div>
-                        
-                        <div class="chat-message left">
-                            <div class="message-author">
-                                <div class="user-avatar" data-initials="田">
-                                    <img src="assets/avatar3.png" alt="田中雅子">
-                                    <span class="status-indicator"></span>
-                                    <div class="user-info-tooltip">查看用户资料</div>
-                                </div>
-                                <div class="author-name">
-                                    <span>田中雅子</span>
-                                    <div class="country-tag">JP</div>
-                                </div>
+                            <div class="feature-highlight">
+                                <span class="highlight-number">3</span>
+                                <span>实时翻译，零延迟展示，流畅对话</span>
                             </div>
-                            <div class="message-bubble">
-                                <div class="message-text">注文書を確認しました。ありがとうございます。</div>
-                                <div class="translation-container">
-                                    <div class="translation-header">
-                                        <div class="translation-label">
-                                            <i class="fas fa-language"></i>
-                                            <span>翻译为中文</span>
-                                        </div>
-                                        <div class="translation-toggle">
-                                            <i class="fas fa-exchange-alt"></i>
-                                            <span>切换语言</span>
-                                        </div>
-                                    </div>
-                                    <div class="translation-text">我已确认订单信息，谢谢。</div>
-                                </div>
-                                <div class="message-footer">
-                                    <div class="message-time">10:32</div>
-                                </div>
+                            <div class="trusted-mark">
+                                <i class="fas fa-check-circle"></i>
+                                <span>语言识别准确率 99.8%</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="input-area">
-                        <div class="input-controls">
-                            <div class="input-button">
-                                <i class="fas fa-plus"></i>
+                    <div class="chat-card">
+                        <div class="chat-card-header">
+                            <div class="chat-card-icon">
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <div class="input-button">
-                                <i class="fas fa-image"></i>
+                            <h3 class="chat-card-title">安全隐私保障</h3>
+                        </div>
+                        <div class="chat-card-content">
+                            <div class="feature-highlight">
+                                <i class="fas fa-lock"></i>
+                                <span>端到端加密保护所有通讯内容</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-database"></i>
+                                <span>基于区块链的加密聊天记录存储</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-user-shield"></i>
+                                <span>用户隐私数据不会被第三方获取</span>
+                            </div>
+                            <div class="trusted-mark">
+                                <i class="fas fa-check-circle"></i>
+                                <span>通过全球安全认证</span>
                             </div>
                         </div>
-                        <input type="text" class="input-field" placeholder="输入消息...">
-                        <div class="send-button">
-                            <i class="fas fa-paper-plane"></i>
+                    </div>
+                    
+                    <div class="chat-card">
+                        <div class="chat-card-header">
+                            <div class="chat-card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="chat-card-title">高性能体验</h3>
+                        </div>
+                        <div class="chat-card-content">
+                            <div class="feature-highlight">
+                                <i class="fas fa-bolt"></i>
+                                <span>毫秒级翻译响应速度</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>低延迟全球通讯网络</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-memory"></i>
+                                <span>低资源占用，流畅运行</span>
+                            </div>
+                            <div class="trusted-mark">
+                                <i class="fas fa-check-circle"></i>
+                                <span>99.9% 服务可用性</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="language-flags">
+                    <div class="lang-flag" data-lang="Chinese">
+                        <span>CN</span>
+                        <div class="lang-tag">中文</div>
+                    </div>
+                    <div class="lang-flag" data-lang="English">
+                        <span>US</span>
+                        <div class="lang-tag">English</div>
+                    </div>
+                    <div class="lang-flag" data-lang="Japanese">
+                        <span>JP</span>
+                        <div class="lang-tag">日本語</div>
+                    </div>
+                    <div class="lang-flag" data-lang="Korean">
+                        <span>KR</span>
+                        <div class="lang-tag">한국어</div>
+                    </div>
+                    <div class="lang-flag" data-lang="Russian">
+                        <span>RU</span>
+                        <div class="lang-tag">Русский</div>
+                    </div>
+                    <div class="lang-flag" data-lang="Spanish">
+                        <span>ES</span>
+                        <div class="lang-tag">Español</div>
+                    </div>
+                    <div class="lang-flag" data-lang="French">
+                        <span>FR</span>
+                        <div class="lang-tag">Français</div>
+                    </div>
+                    <div class="lang-flag" data-lang="German">
+                        <span>DE</span>
+                        <div class="lang-tag">Deutsch</div>
+                    </div>
+                    <div class="lang-flag more" data-lang="More">
+                        <span>+92</span>
+                        <div class="lang-tag">更多语言</div>
+                    </div>
+                </div>
+                
+                <div class="chat-content">
+                    <div class="feature-annotation annotation-1">
+                        实时翻译：发送的消息将自动翻译成对方的语言
+                    </div>
+                    <div class="feature-annotation annotation-2">
+                        多语言支持：每个用户可以使用自己的母语
+                    </div>
+                    <div class="feature-annotation annotation-3">
+                        翻译开关：随时切换是否显示翻译内容
+                    </div>
+                    
+                    <div class="chat-preview">
+                        <div class="chat-header">
+                            <div class="group-info">
+                                <div class="group-name">Global Business Group</div>
+                                <div class="group-meta">36名成员 • 5在线</div>
+                            </div>
+                            <div class="menu-button">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="messages-container">
+                             
+                            <div class="translations-switch">
+                                <span class="switch-label">显示翻译</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="chat-message left">
+                                <div class="message-author">
+                                    <div class="user-avatar" data-initials="J">
+                                        <img src="assets/avatar1.png" alt="John Smith">
+                                        <span class="status-indicator online"></span>
+                                        <div class="user-info-tooltip">查看用户资料</div>
+                                    </div>
+                                    <div class="author-name">
+                                        <span>John Smith</span>
+                                        <div class="country-tag">EN</div>
+                                    </div>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-text">When can we expect the shipment to arrive?</div>
+                                    <div class="translation-container">
+                                        <div class="translation-animation"></div>
+                                        <div class="translation-header">
+                                            <div class="translation-label">
+                                                <i class="fas fa-language"></i>
+                                                <span>翻译为中文</span>
+                                            </div>
+                                            <div class="translation-toggle">
+                                                <i class="fas fa-exchange-alt"></i>
+                                                <span>切换语言</span>
+                                            </div>
+                                        </div>
+                                        <div class="translation-text">预计什么时候能收到货物？</div>
+                                    </div>
+                                    <div class="message-footer">
+                                        <div class="message-time">10:25</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-message right">
+                                <div class="message-author">
+                                    <div class="author-name">
+                                        <span>张明</span>
+                                        <div class="country-tag">CN</div>
+                                    </div>
+                                    <div class="user-avatar" data-initials="张">
+                                        <img src="assets/avatar2.png" alt="张明">
+                                        <span class="status-indicator online"></span>
+                                        <div class="user-info-tooltip">查看用户资料</div>
+                                    </div>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-text">货物已经发出，预计3-5天内送达。</div>
+                                    <div class="translation-container">
+                                        <div class="translation-animation"></div>
+                                        <div class="translation-header">
+                                            <div class="translation-label">
+                                                <i class="fas fa-language"></i>
+                                                <span>翻译为英文</span>
+                                            </div>
+                                            <div class="translation-toggle">
+                                                <i class="fas fa-exchange-alt"></i>
+                                                <span>切换语言</span>
+                                            </div>
+                                        </div>
+                                        <div class="translation-text">The goods have been shipped and should arrive in 3-5 days.</div>
+                                    </div>
+                                    <div class="message-footer">
+                                        <div class="message-time">10:30</div>
+                                        <div class="message-status">
+                                            <i class="fas fa-check-double"></i>
+                                            <div class="status-tooltip">已送达并已读</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-message left">
+                                <div class="message-author">
+                                    <div class="user-avatar" data-initials="田">
+                                        <img src="assets/avatar3.png" alt="田中雅子">
+                                        <span class="status-indicator"></span>
+                                        <div class="user-info-tooltip">查看用户资料</div>
+                                    </div>
+                                    <div class="author-name">
+                                        <span>田中雅子</span>
+                                        <div class="country-tag">JP</div>
+                                    </div>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-text">注文書を確認しました。ありがとうございます。</div>
+                                    <div class="translation-container">
+                                        <div class="translation-animation"></div>
+                                        <div class="translation-header">
+                                            <div class="translation-label">
+                                                <i class="fas fa-language"></i>
+                                                <span>翻译为中文</span>
+                                            </div>
+                                            <div class="translation-toggle">
+                                                <i class="fas fa-exchange-alt"></i>
+                                                <span>切换语言</span>
+                                            </div>
+                                        </div>
+                                        <div class="translation-text">我已确认订单信息，谢谢。</div>
+                                    </div>
+                                    <div class="message-footer">
+                                        <div class="message-time">10:32</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-area">
+                            <div class="input-controls">
+                                <div class="input-button">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="input-button">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="input-field" placeholder="输入消息...">
+                            <div class="send-button">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -452,101 +572,10 @@
         </section>
 
         <section id="user-experience" class="user-experience">
-            <h2>用户体验反馈</h2>
-            <p class="subtitle">来自全球用户的真实评价</p>
-            
-            <div class="testimonials">
-                <div class="testimonial-card">
-                    <div class="user-profile">
-                        <img src="assets/user1.png" alt="用户头像" class="user-avatar">
-                        <div class="user-info">
-                            <h4>李小明</h4>
-                            <div class="user-meta">
-                                <span class="user-location"><i class="fas fa-map-marker-alt"></i> 中国上海</span>
-                                <span class="user-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"QQLink的区块链技术确实让我感到安心，所有聊天记录都能永久保存，再也不用担心重要信息丢失。多语言翻译功能帮我轻松与国外客户沟通，提高了工作效率。"</p>
-                    <div class="testimonial-date">2024年3月15日</div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="user-profile">
-                        <img src="assets/user2.png" alt="用户头像" class="user-avatar">
-                        <div class="user-info">
-                            <h4>Sarah Johnson</h4>
-                            <div class="user-meta">
-                                <span class="user-location"><i class="fas fa-map-marker-alt"></i> New York, USA</span>
-                                <span class="user-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"The real-time translation feature is a game-changer! I've been able to communicate effortlessly with my Chinese business partners without any language barriers. The encryption also gives me peace of mind when discussing sensitive information."</p>
-                    <div class="testimonial-date">March 22, 2024</div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="user-profile">
-                        <img src="assets/user3.png" alt="用户头像" class="user-avatar">
-                        <div class="user-info">
-                            <h4>山田太郎</h4>
-                            <div class="user-meta">
-                                <span class="user-location"><i class="fas fa-map-marker-alt"></i> 東京, 日本</span>
-                                <span class="user-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"ブロックチェーン技術に基づいた安全性と、リアルタイム翻訳機能が素晴らしいです。グローバルなチームでのコミュニケーションが格段に向上しました。使いやすさも抜群です！"</p>
-                    <div class="testimonial-date">2024年4月5日</div>
-                </div>
-            </div>
-            
-            <div class="experience-stats">
-                <div class="stat-block">
-                    <div class="stat-icon"><i class="fas fa-smile"></i></div>
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">用户满意度</div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">用户留存率</div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-icon"><i class="fas fa-download"></i></div>
-                    <div class="stat-number">100万+</div>
-                    <div class="stat-label">全球下载</div>
-                </div>
-            </div>
-            
-            <div class="cta-container">
-                <button class="primary-btn">
-                    <i class="fas fa-star"></i> 分享您的体验
-                </button>
-                <button class="secondary-btn">
-                    <i class="fas fa-comments"></i> 查看更多评价
-                </button>
-            </div>
+            <!-- 此区域内容已移除 -->
         </section>
+
+       
     </main>
 
     <footer class="footer">
@@ -583,5 +612,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html> 
