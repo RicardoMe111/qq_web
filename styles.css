@@ -1803,63 +1803,95 @@ a:hover {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--primary-color);
+    position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 20px;
     text-transform: uppercase;
-    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    transform: translateZ(0);
 }
 
-.user-avatar::before {
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.chat-message.left .user-avatar {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    color: white;
+}
+
+.chat-message.right .user-avatar {
+    background: linear-gradient(135deg, #8c6cff, #6a11cb);
+    color: white;
+}
+
+/* 第三个用户的特殊颜色 */
+.chat-message:nth-child(5) .user-avatar {
+    background: linear-gradient(135deg, #ff6a88, #ff8a65);
+    color: white;
+}
+
+.chat-message:hover .user-avatar {
+    transform: scale(1.05) translateZ(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: white;
+}
+
+.chat-message:hover .user-avatar img {
+    transform: scale(1.1);
+}
+
+.user-info-tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+}
+
+.user-info-tooltip::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0, 0, 0, 0.8);
 }
 
-/* 移除不需要的样式 */
-.user-avatar img,
+.user-avatar:hover .user-info-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 删除不需要的旧样式 */
+.user-avatar::before,
 .user-avatar::after,
 .chat-message.left .user-avatar::after,
 .chat-message.right .user-avatar::after,
 .chat-message:hover .user-avatar::after {
     display: none;
-}
-
-/* 定制不同用户的头像基础颜色 */
-.chat-message.left .user-avatar {
-    background: #36d1dc;
-}
-
-.chat-message.right .user-avatar {
-    background: #8c6cff;
-}
-
-/* 第三个用户的特殊颜色 */
-.chat-message:nth-child(3) .user-avatar {
-    background: #ff6a88;
-}
-
-/* 移除所有悬停和点击效果 */
-.chat-message:hover .user-avatar,
-.chat-message.right:hover .user-avatar,
-.chat-message:hover .user-avatar img,
-.user-avatar:active {
-    transform: none;
-    box-shadow: none;
-    filter: none;
-    transition: none;
-    border-color: transparent;
 }
 
 .author-name {
@@ -3072,24 +3104,24 @@ input:checked + .slider:before {
     .security-card {
         height: 380px;
         padding: 25px;
-    }
-    
-    .chat-card {
+}
+
+.chat-card {
         height: 500px;
         padding: 25px;
-    }
-    
+}
+
     .feature-highlight {
         padding: 14px;
         margin-bottom: 14px;
-    }
-    
-    .highlight-number {
+}
+
+.highlight-number {
         width: 1.5rem;
         height: 1.5rem;
         font-size: 0.85rem;
         flex-shrink: 0;
-    }
+}
 }
 
 @media (max-width: 767px) {
@@ -3119,8 +3151,8 @@ input:checked + .slider:before {
     .chat-card {
         height: auto;
         padding: 20px;
-    }
-    
+}
+
     .chat-card-icon {
         width: 50px;
         height: 50px;

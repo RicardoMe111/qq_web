@@ -50,4 +50,4 @@ If you have any questions, suggestions or complaints about this agreement or our
 
 Thank you for choosing to use this application. Please rest assured that we will do our utmost to protect the security of your personal information.
 
-Last Updated: October 22, 2024
+Last Updated:  April，2025

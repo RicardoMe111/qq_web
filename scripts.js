@@ -294,13 +294,17 @@ function initChatMessages() {
 }
 
 /**
- * 初始化用户头像，确保只显示首字母
+ * 初始化用户头像，确保显示优雅的头像
  */
 function initUserAvatars() {
     const avatars = document.querySelectorAll('.user-avatar');
     
     avatars.forEach(avatar => {
-        // 保存原来的非图片子元素，如状态指示器和工具提示
+        // 获取data-initials属性
+        const fullInitials = avatar.getAttribute('data-initials');
+        const imgElement = avatar.querySelector('img');
+        
+        // 保存原来的非图片子元素，如工具提示
         const childrenToKeep = [];
         Array.from(avatar.children).forEach(child => {
             if (child.tagName !== 'IMG') {
@@ -308,23 +312,62 @@ function initUserAvatars() {
             }
         });
         
-        // 获取data-initials属性
-        const fullInitials = avatar.getAttribute('data-initials');
-        
-        if (fullInitials && fullInitials.length > 0) {
-            // 只取名字的第一个字符
-            const firstChar = fullInitials.charAt(0);
+        // 检查是否有图片元素并且图片URL是否有效
+        if (imgElement && imgElement.src) {
+            // 创建图片加载错误处理程序
+            imgElement.onerror = function() {
+                createInitialsAvatar();
+                this.style.display = 'none';
+            };
             
-            // 清空头像内容
-            avatar.innerHTML = '';
-            
-            // 添加首字母文本
-            avatar.appendChild(document.createTextNode(firstChar));
-            
-            // 重新添加要保留的子元素
-            childrenToKeep.forEach(child => {
-                avatar.appendChild(child);
-            });
+            // 创建图片加载成功处理程序
+            imgElement.onload = function() {
+                this.style.display = 'block';
+            };
+        } else {
+            createInitialsAvatar();
         }
+        
+        // 创建基于首字母的头像
+        function createInitialsAvatar() {
+            if (fullInitials && fullInitials.length > 0) {
+                // 清空头像内容
+                avatar.innerHTML = '';
+                
+                // 获取首字母（支持中文和英文）
+                const firstChar = fullInitials.charAt(0);
+                
+                // 添加首字母文本
+                avatar.appendChild(document.createTextNode(firstChar));
+                
+                // 重新添加要保留的子元素
+                childrenToKeep.forEach(child => {
+                    avatar.appendChild(child);
+                });
+            }
+        }
+        
+        // 添加悬停效果
+        avatar.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateZ(0)';
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            this.style.borderColor = 'white';
+            
+            const imgEl = this.querySelector('img');
+            if (imgEl) {
+                imgEl.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        avatar.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateZ(0)';
+            this.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+            this.style.borderColor = 'rgba(255, 255, 255, 0.8)';
+            
+            const imgEl = this.querySelector('img');
+            if (imgEl) {
+                imgEl.style.transform = 'scale(1)';
+            }
+        });
     });
 } 

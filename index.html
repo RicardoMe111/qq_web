@@ -19,16 +19,11 @@
             </div>
             <div class="spacer"></div>
             <div class="right-nav">
-                <div class="nav-links">
+            <div class="nav-links">
                     <a href="#features"><i class="fas fa-comments"></i> Chat functionality                    </a>
                     <a href="#security"><i class="fas fa-shield-alt"></i> Security features</a>
+                    <a href="#chat"><i class="fas fa-language"></i> Multilingual support</a>
                 </div>
-                <button class="download-btn">
-                    <i class="fas fa-download"></i> Download now
-                </button>
-                <a href="#chat" class="lang-support-btn">
-                    <i class="fas fa-language"></i> Multilingual support
-                </a>
             </div>
             <button class="mobile-menu-btn" aria-label="打开菜单" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -55,9 +50,6 @@
                 </nav>
         
                 <div class="mobile-actions">
-                    <button class="download-btn">
-                        <i class="fas fa-download"></i> Download now
-                    </button>
                     <div class="mobile-links">
                         <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
                         <a href="service.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
@@ -72,14 +64,6 @@
             <div class="hero-content">
                 <h1>A purely blockchain-based messaging platform</h1>
                 <p>Decentralized storage,End-to-end encryption,Real-time multilingual translation,Permanent message history</p>
-                <div class="cta-buttons">
-                    <button class="primary-btn">
-                        <i class="fas fa-rocket"></i> Start chatting
-                    </button>
-                    <button class="secondary-btn">
-                        <i class="fas fa-info-circle"></i> Learn more
-                    </button>
-                </div>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">10 million+</span>
@@ -122,7 +106,7 @@
                     <div class="feature-card">
                         <img src="assets/ai.svg" alt="AI Translation">
                         <h3>Real-time translation</h3>
-                        <p>Supports real-time translation in over 50 languages, automatically recognizing and converting languages to break language barriers and enable seamless global communication</p>
+                        <p>Supports real-time translation in over 100 languages, automatically recognizing and converting languages to break language barriers and enable seamless global communication</p>
                         <div class="feature-tags">
                             <span class="tag">AI</span>
                             <span class="tag">Translation</span>
@@ -338,7 +322,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="chat-card">
                         <div class="chat-card-header">
                             <div class="chat-card-icon">
@@ -369,7 +353,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="chat-card">
                         <div class="chat-card-header">
                             <div class="chat-card-icon">
@@ -466,9 +450,7 @@
                             <div class="chat-message left">
                                 <div class="message-author">
                                     <div class="user-avatar" data-initials="J">
-                                        <img src="assets/avatar1.png" alt="John Smith">
-                                        <span class="status-indicator online"></span>
-                                        <div class="user-info-tooltip">View user profile</div>
+                                        <div class="user-info-tooltip">View profile</div>
                                     </div>
                                     <div class="author-name">
                                         <span>John Smith</span>
@@ -503,10 +485,8 @@
                                         <span>Zhang Ming</span>
                                         <div class="country-tag">CN</div>
                                     </div>
-                                    <div class="user-avatar" data-initials="张">
-                                        <img src="assets/avatar2.png" alt="Zhang Ming">
-                                        <span class="status-indicator online"></span>
-                                        <div class="user-info-tooltip">View user profile</div>
+                                    <div class="user-avatar" data-initials="Z">
+                                        <div class="user-info-tooltip">View profile</div>
                                     </div>
                                 </div>
                                 <div class="message-bubble">
@@ -538,9 +518,7 @@
                             <div class="chat-message left">
                                 <div class="message-author">
                                     <div class="user-avatar" data-initials="T">
-                                        <img src="assets/avatar3.png" alt="Tanaka Masako">
-                                        <span class="status-indicator"></span>
-                                        <div class="user-info-tooltip">View user profile</div>
+                                        <div class="user-info-tooltip">View profile</div>
                                     </div>
                                     <div class="author-name">
                                         <span>Tanaka Masako</span>
@@ -625,11 +603,46 @@
             <a href="contact.html" class="footer-link"><i class="fas fa-envelope"></i> Contact Us</a>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 QQLink. All rights reserved.</p>
+            <p>© 2025 QQLink. All rights reserved.</p>
         </div>
     </footer>
 
     <style>
+    /* 添加头像相关的样式 */
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+        50% { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+    }
+    
+    /* 添加更多动态效果到消息气泡 */
+    .message-bubble {
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .chat-message:hover .message-bubble {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* 提升消息作者区域的视觉效果 */
+    .message-author {
+        margin-bottom: 0.8rem;
+    }
+    
+    .author-name span {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .country-tag {
+        padding: 0.15rem 0.5rem;
+        font-weight: 500;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+    }
+    
     /* Footer styles */
     .footer {
         padding: 2rem 0;
@@ -674,27 +687,7 @@
     
     /* Multilingual support button styles */
     .lang-support-btn {
-        display: flex;
-        align-items: center;
-        padding: 0.6rem 1.2rem;
-        background-color: transparent;
-        color: #0066FF;
-        border: 1px solid #0066FF;
-        border-radius: 6px;
-        font-weight: 500;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        margin-left: 1rem;
-    }
-    
-    .lang-support-btn i {
-        margin-right: 0.5rem;
-        font-size: 1.1rem;
-    }
-    
-    .lang-support-btn:hover {
-        background-color: rgba(0, 102, 255, 0.1);
-        transform: translateY(-2px);
+        display: none;
     }
     
     /* Mobile menu button */

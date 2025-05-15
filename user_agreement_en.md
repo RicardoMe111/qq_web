@@ -82,6 +82,6 @@ Users agree to use the App lawfully and shall not engage in the following behavi
 ---
 
 **Version**: v1.0  
-**Effective Date**: October 22, 2024  
+**Effective Date**: April，2025 
 **Operator**: QQLINK LTD  
 **Contact Email**: admin@qqlink.com
