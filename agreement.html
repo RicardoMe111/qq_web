@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Agreement - QQLink</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 用户协议页面特定样式 */
+        .agreement-container {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--light-text);
+        }
+        
+        .agreement-content {
+            background-color: var(--light-background);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+            line-height: 1.7;
+        }
+        
+        .agreement-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-weight: 700;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .agreement-content h2:after {
+            content: '';
+            display: block;
+            width: 4rem;
+            height: 0.25rem;
+            background-color: var(--primary-color);
+            margin-top: 0.75rem;
+            border-radius: 0.125rem;
+        }
+        
+        .agreement-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .agreement-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--light-text);
+        }
+        
+        .agreement-content ul, .agreement-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .agreement-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: var(--light-text);
+        }
+        
+        .agreement-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .agreement-content a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .agreement-content strong {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .agreement-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-left: 0;
+            margin-right: 0;
+            font-style: italic;
+            color: var(--light-text);
+        }
+        
+        .agreement-content code {
+            font-family: monospace;
+            background-color: rgba(0, 102, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+        
+        .agreement-content pre {
+            background-color: rgba(0, 102, 255, 0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .agreement-content pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 0.9em;
+        }
+        
+        .agreement-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .related-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+        }
+        
+        .related-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .related-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+        
+        .loading i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .error-message {
+            text-align: center;
+            padding: 2rem;
+            color: #e53935;
+            background-color: rgba(229, 57, 53, 0.1);
+            border-radius: 0.5rem;
+        }
+        
+        .error-message i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation bar layout */
+        .spacer {
+            flex-grow: 1;
+        }
+        
+        /* Right navigation styles */
+        .right-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-right: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0066FF;
+        }
+        
+        .nav-links a i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Multilingual support button styles */
+        .lang-support-btn {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            background-color: transparent;
+            color: #0066FF;
+            border: 1px solid #0066FF;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+        
+        .lang-support-btn i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .lang-support-btn:hover {
+            background-color: rgba(0, 102, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #0066FF;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .right-nav {
+                margin-left: auto;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+            
+            .lang-support-btn {
+                display: none;
+            }
+            
+            .agreement-container {
+                padding: 5rem 1rem 3rem;
+            }
+            
+            .agreement-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Footer styles */
+        .footer {
+            padding: 2rem 0;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            color: #4d9cff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: rgba(77, 156, 255, 0.12);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-link:hover {
+            background-color: rgba(77, 156, 255, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+        }
+        
+        .footer-link i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+            color: #4d9cff;
+        }
+        
+        .footer-bottom {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .footer-link {
+                width: 80%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="QQLink Logo">
+                    <span class="logo-text">QQLink</span>
+                </a>
+            </div>
+            <div class="spacer"></div>
+            <div class="right-nav">
+                <div class="nav-links">
+                    <a href="index.html#features"><i class="fas fa-comments"></i> Chat functionality</a>
+                    <a href="index.html#security"><i class="fas fa-shield-alt"></i> Security features</a>
+                </div>
+                <button class="download-btn">
+                    <i class="fas fa-download"></i> Download now
+                </button>
+                <a href="index.html#chat" class="lang-support-btn">
+                    <i class="fas fa-language"></i> Multilingual support
+                </a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="打开菜单" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <img src="assets/logo.png" alt="QQLink Logo">
+                    <span class="logo-text">QQLink</span>
+                </div>
+                <button class="mobile-menu-close" id="mobileMenuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-menu-content">
+                <nav class="mobile-nav">
+                    <a href="index.html#features"><i class="fas fa-comments"></i> Chat functionality</a>
+                    <a href="index.html#security"><i class="fas fa-shield-alt"></i> Security features</a>
+                    <a href="index.html#chat"><i class="fas fa-language"></i> Multilingual support</a>
+                </nav>
+                
+                <div class="mobile-actions">
+                    <a href="index.html" class="download-btn">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                    <div class="mobile-links">
+                        <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                        <a href="service.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="agreement-container">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="separator">/</span>
+                <span>User Agreement</span>
+            </div>
+            
+            <div class="agreement-content" id="agreement-content">
+                <!-- 这里是Markdown内容将被渲染的地方 -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading user agreement content...
+                </div>
+            </div>
+            
+            <div class="agreement-footer">
+                Last update: <span id="last-updated"></span>
+                <div class="related-links">
+                    <a href="privacy.html" class="related-link"><i class="fas fa-shield-alt"></i> View Privacy Policy</a>
+                    <a href="service.html" class="related-link"><i class="fas fa-file-contract"></i> View Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 返回顶部按钮 -->
+        <button class="scroll-top-btn" id="scrollTopBtn" aria-label="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy.html" class="footer-link"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="service.html" class="footer-link"><i class="fas fa-file-contract"></i> Terms of Service</a>
+            <a href="agreement.html" class="footer-link"><i class="fas fa-file-signature"></i> User Agreement</a>
+            <a href="contact.html" class="footer-link"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 QQLink. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 添加 Marked.js 库用于解析 Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        // 移动端菜单切换
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    openMobileMenu();
+                });
+                
+                // 点击关闭按钮关闭菜单
+                if (mobileMenuClose) {
+                    mobileMenuClose.addEventListener('click', function() {
+                        closeMobileMenu();
+                    });
+                }
+                
+                // 点击导航链接后关闭菜单
+                const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav a, .mobile-links a');
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        closeMobileMenu();
+                    });
+                });
+                
+                // 按ESC键关闭菜单
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = ''; // 恢复背景滚动
+            }
+            
+            // 初始化返回顶部按钮
+            initScrollTopButton();
+            
+            // 配置 marked 选项以确保正确渲染
+            marked.setOptions({
+                breaks: true,           // 将换行符转换为 <br>
+                gfm: true,              // 使用 GitHub 风格的 Markdown
+                headerIds: true,        // 为标题生成 ID
+                mangle: false,          // 不转义标题中的特殊字符
+                smartLists: true,       // 使用更智能的列表行为
+                smartypants: true       // 使用更智能的标点符号处理
+            });
+            
+            // 加载并解析 Markdown 文件
+            fetch('user_agreement_en.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('无法加载用户协议文件');
+                    }
+                    return response.text();
+                })
+                .then(markdownText => {
+                    try {
+                        // 处理 Markdown 中的特殊字符
+                        // 特别是处理 "1." 开头的有序列表项
+                        markdownText = markdownText.replace(/^(\d+)\\\.(\s+)/gm, '$1.$2');
+                        
+                        // 解析 Markdown 为 HTML
+                        const htmlContent = marked.parse(markdownText);
+                        
+                        // 渲染到页面
+                        document.getElementById('agreement-content').innerHTML = htmlContent;
+                        
+                        // 添加锚点到标题
+                        addAnchorsToHeadings();
+                        
+                        // 提取最后更新日期
+                        const versionMatch = markdownText.match(/"Effective Date": (.*?)$/m);
+                        if (versionMatch && versionMatch[1]) {
+                            document.getElementById('last-updated').textContent = versionMatch[1];
+                        }
+                    } catch (parseError) {
+                        console.error('解析 Markdown 出错:', parseError);
+                        document.getElementById('agreement-content').innerHTML = `
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <p>解析用户协议内容时出错，请稍后再试。</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('加载用户协议时出错:', error);
+                    document.getElementById('agreement-content').innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>加载用户协议时出错，请稍后再试。</p>
+                        </div>
+                    `;
+                });
+                
+            // 为标题添加锚点链接，便于导航
+            function addAnchorsToHeadings() {
+                const headings = document.querySelectorAll('.agreement-content h2, .agreement-content h3');
+                headings.forEach((heading, index) => {
+                    // 生成锚点 ID
+                    const id = heading.textContent.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                    heading.id = id;
+                });
+            }
+            
+            // 初始化返回顶部按钮
+            function initScrollTopButton() {
+                const scrollTopBtn = document.getElementById('scrollTopBtn');
+                
+                // 监听滚动事件
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                
+                // 点击返回顶部
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

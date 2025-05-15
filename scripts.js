@@ -1,39 +1,45 @@
 // 移动端菜单切换
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
     const mobileMenu = document.getElementById('mobileMenu');
     
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            
-            // 切换菜单图标
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-                // 禁止背景滚动
-                document.body.style.overflow = 'hidden';
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                // 恢复背景滚动
-                document.body.style.overflow = '';
-            }
+            openMobileMenu();
         });
+            
+        // 点击关闭按钮关闭菜单
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        }
         
         // 点击导航链接后关闭菜单
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+        const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav a, .mobile-links a');
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                // 恢复背景滚动
-                document.body.style.overflow = '';
+                closeMobileMenu();
             });
         });
+        
+        // 按ESC键关闭菜单
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    }
+    
+    function openMobileMenu() {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 禁止背景滚动
+    }
+    
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = ''; // 恢复背景滚动
     }
     
     // 窗口大小变化时处理导航菜单
@@ -41,13 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth >= 768) {
             // 在桌面视图下确保移动菜单关闭
             if (mobileMenu && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-                document.body.style.overflow = '';
+                closeMobileMenu();
             }
         }
     });
@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 为聊天消息添加焦点效果
     initChatMessages();
+    
+    // 处理用户头像显示首字母
+    initUserAvatars();
 });
 
 /**
@@ -287,5 +290,41 @@ function initChatMessages() {
                 animation.style.opacity = '0.8';
             }
         });
+    });
+}
+
+/**
+ * 初始化用户头像，确保只显示首字母
+ */
+function initUserAvatars() {
+    const avatars = document.querySelectorAll('.user-avatar');
+    
+    avatars.forEach(avatar => {
+        // 保存原来的非图片子元素，如状态指示器和工具提示
+        const childrenToKeep = [];
+        Array.from(avatar.children).forEach(child => {
+            if (child.tagName !== 'IMG') {
+                childrenToKeep.push(child);
+            }
+        });
+        
+        // 获取data-initials属性
+        const fullInitials = avatar.getAttribute('data-initials');
+        
+        if (fullInitials && fullInitials.length > 0) {
+            // 只取名字的第一个字符
+            const firstChar = fullInitials.charAt(0);
+            
+            // 清空头像内容
+            avatar.innerHTML = '';
+            
+            // 添加首字母文本
+            avatar.appendChild(document.createTextNode(firstChar));
+            
+            // 重新添加要保留的子元素
+            childrenToKeep.forEach(child => {
+                avatar.appendChild(child);
+            });
+        }
     });
 } 

@@ -46,7 +46,7 @@ We may update this agreement from time to time. When there are significant chang
 
 If you have any questions, suggestions or complaints about this agreement or our privacy practices, please feel free to contact us at any time. You can contact us through the following ways:
 
-+ Email:[admin@92k.xin](mailto:admin@92k.xin)
++ Email:[admin@qqlink.com](mailto:admin@qqlink.com)
 
 Thank you for choosing to use this application. Please rest assured that we will do our utmost to protect the security of your personal information.
 
